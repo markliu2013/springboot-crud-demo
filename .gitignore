@@ -1,5 +1,21 @@
-# Object file
-*.o
+# IDEA
+*.iml
+*.ipr
+*.iws
+.idea/
 
-# Ada Library Information
-*.ali
+# Eclipse
+.classpath
+.project
+.settings/
+.recommenders/
+.metadata/
+
+# OSX
+.DS_Store
+
+#Gradle
+.gradletasknamecache
+.gradle/
+build/
+bin/

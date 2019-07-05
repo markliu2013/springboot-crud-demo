@@ -1,4 +1,4 @@
-package com.zfwhub.springboot.endpoint;
+package com.zfwhub.springboot;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

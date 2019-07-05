@@ -1,25 +1,27 @@
-package com.zfwhub.springboot.po;
+package com.zfwhub.springboot.dto;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+public class AccountDto implements DtoEntity {
 
-@Entity
-public class Department {
+    private static final long serialVersionUID = 6426510366095849313L;
 
     private Integer id;
     private String name;
-    private String location;
+    private Double money;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    public AccountDto() { }
+    
+    public AccountDto(String name) {
+        this.name = name;
+    }
+
     public Integer getId() {
         return id;
     }
 
-    @Column(length = 32)
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }
@@ -28,13 +30,12 @@ public class Department {
         this.name = name;
     }
 
-    @Column(length = 32)
-    public String getLocation() {
-        return location;
+    public Double getMoney() {
+        return money;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
+    public void setMoney(Double money) {
+        this.money = money;
     }
 
     @Override
@@ -53,7 +54,7 @@ public class Department {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        Department other = (Department) obj;
+        AccountDto other = (AccountDto) obj;
         if (name == null) {
             if (other.name != null)
                 return false;
@@ -64,7 +65,7 @@ public class Department {
 
     @Override
     public String toString() {
-        return "Department [id=" + id + ", name=" + name + ", location=" + location + "]";
+        return "AccountDto [id=" + id + ", name=" + name + ", money=" + money + "]";
     }
 
 }

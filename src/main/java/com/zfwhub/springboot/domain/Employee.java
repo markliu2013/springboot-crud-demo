@@ -1,4 +1,4 @@
-package com.zfwhub.springboot.po;
+package com.zfwhub.springboot.domain;
 
 import java.util.Date;
 
@@ -12,25 +12,39 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Employee {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+
+    @Column(nullable = false, unique = true, length = 16)
     private String no;
+
+    @Column(length = 32)
     private String name;
+
+    @Column(length = 16)
     private String job;
+    
+    @ManyToOne(optional=true)
     private Employee manager; //his manager, also a Employee
+    
     private Date hireDate;
+    
     private Double salary;
+    
     private Double commission;
+    
+    @ManyToOne(optional=false)
     private Department department;
 
-    @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
     public Integer getId() {
         return id;
     }
     
-    // you can't set id
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-    @Column(nullable=false, unique=true, length=16)
     public String getNo() {
         return no;
     }
@@ -38,8 +52,7 @@ public class Employee {
     public void setNo(String no) {
         this.no = no;
     }
-    
-    @Column(length=32)
+
     public String getName() {
         return name;
     }
@@ -48,7 +61,6 @@ public class Employee {
         this.name = name;
     }
 
-    @Column(length=16)
     public String getJob() {
         return job;
     }
@@ -57,7 +69,6 @@ public class Employee {
         this.job = job;
     }
 
-    @ManyToOne
     public Employee getManager() {
         return manager;
     }
@@ -90,7 +101,6 @@ public class Employee {
         this.commission = commission;
     }
 
-    @ManyToOne
     public Department getDepartment() {
         return department;
     }

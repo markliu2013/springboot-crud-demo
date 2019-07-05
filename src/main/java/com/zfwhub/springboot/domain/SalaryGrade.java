@@ -1,4 +1,4 @@
-package com.zfwhub.springboot.po;
+package com.zfwhub.springboot.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,6 +19,10 @@ public class SalaryGrade {
         return id;
     }
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+    
     public Integer getGrade() {
         return grade;
     }

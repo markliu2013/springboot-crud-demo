@@ -1,4 +1,4 @@
-package com.zfwhub.springboot.domain;
+package com.zfwhub.springboot.po;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,6 +12,14 @@ public class SalaryGrade {
     private Integer grade; // 1, 2, 3...
     private Double fromSalary; // include
     private Double toSalary; // include
+    
+    
+
+    public SalaryGrade(Integer grade, Double fromSalary, Double toSalary) {
+        this.grade = grade;
+        this.fromSalary = fromSalary;
+        this.toSalary = toSalary;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

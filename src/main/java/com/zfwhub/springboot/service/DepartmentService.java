@@ -10,6 +10,8 @@ public interface DepartmentService {
     
     List<DepartmentDto> getAll();
     
-    DepartmentDto getByName(String name);
+    DepartmentDto getById(Integer id);
+    
+    DepartmentDto deleteById(Integer id);
 
 }

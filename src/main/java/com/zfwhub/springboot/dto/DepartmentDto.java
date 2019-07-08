@@ -8,6 +8,13 @@ public class DepartmentDto implements DtoEntity {
     private String name;
     private String location;
     
+    public DepartmentDto() { }
+    
+    public DepartmentDto(String name, String location) {
+        this.name = name;
+        this.location = location;
+    }
+
     public Integer getId() {
         return id;
     }

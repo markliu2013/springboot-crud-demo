@@ -20,7 +20,7 @@ public class TestAspect {
     public void before(JoinPoint joinPoint) {
         logger.info(" Check before-------------------------------------------------------- ");
         logger.info(" Allowed execution for {}", "");
-        System.out.println(Arrays.toString(joinPoint.getArgs()));
+        logger.info(Arrays.toString(joinPoint.getArgs()));
     }
     
 

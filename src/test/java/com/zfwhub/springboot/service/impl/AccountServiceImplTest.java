@@ -1,33 +1,27 @@
 package com.zfwhub.springboot.service.impl;
 
-import static org.junit.Assert.*;
+
+import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
-import javax.transaction.Transactional;
-
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.transaction.annotation.Transactional;
 
-import com.zfwhub.springboot.Application;
 import com.zfwhub.springboot.dto.AccountDto;
+import com.zfwhub.springboot.po.Account;
 import com.zfwhub.springboot.repository.AccountRepository;
 import com.zfwhub.springboot.service.AccountService;
 
 @RunWith(SpringRunner.class)
-@DataJpaTest
-@AutoConfigureTestDatabase(replace = Replace.NONE)
-@ContextConfiguration(classes=Application.class)
+@SpringBootTest
 @Transactional
 public class AccountServiceImplTest {
     
@@ -36,29 +30,26 @@ public class AccountServiceImplTest {
     @Autowired
     private AccountService accountService;
 
-    @BeforeClass
-    public static void setUpBeforeClass() throws Exception {
-        
-    }
-
-    @Before
-    @Rollback(false)
-    public void setUp() throws Exception {
-//        List<Account> entities = new ArrayList<>();
-//        Account account1 = new Account("A", 1000.0);
-//        Account account2 = new Account("B", 1000.0);
-//        Account account3 = new Account("C", 1000.0);
-//        entities.add(account1);
-//        entities.add(account2);
-//        entities.add(account3);
-//        accountRepository.saveAll(entities);
-    }
-
     @Test
-    public void testTransfer() {
-        AccountDto from = new AccountDto("A");
-        AccountDto to = new AccountDto("B");
+    @Rollback(true)
+    public void testTransferNormal() {
+        
+        List<Account> entities = new ArrayList<>();
+        Account account1 = new Account("A1", 1000.0);
+        Account account2 = new Account("B1", 1000.0);
+        entities.add(account1);
+        entities.add(account2);
+        accountRepository.saveAll(entities);
+        
+        AccountDto from = new AccountDto("A1");
+        AccountDto to = new AccountDto("B1");
         accountService.transfer(from, to, 100);
+        
+        Optional<Account> account3 = accountRepository.findById(account1.getId());
+        Optional<Account> account4 = accountRepository.findById(account2.getId());
+        assertEquals(new Double(900.0), account3.get().getMoney());
+        assertEquals(new Double(1100.0), account4.get().getMoney());
+        
     }
 
 }

@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.zfwhub.springboot.domain.Account;
+import com.zfwhub.springboot.po.Account;
 
 @Repository
 public interface AccountRepository extends JpaRepository<Account, Integer> {

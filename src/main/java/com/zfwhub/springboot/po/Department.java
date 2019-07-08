@@ -1,4 +1,4 @@
-package com.zfwhub.springboot.domain;
+package com.zfwhub.springboot.po;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -21,6 +21,10 @@ public class Department {
     
     public Department() { }
     
+    public Department(Integer id) {
+        this.id = id;
+    }
+
     public Department(String name, String location) {
         this.name = name;
         this.location = location;

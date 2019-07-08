@@ -1,4 +1,4 @@
-package com.zfwhub.springboot.domain;
+package com.zfwhub.springboot.po;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

@@ -1,46 +1,28 @@
-package com.zfwhub.springboot.domain;
+package com.zfwhub.springboot.dto;
 
-import java.util.Date;
+import java.time.LocalDate;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+public class EmployeeDto implements DtoEntity {
 
-@Entity
-public class Employee {
+    private static final long serialVersionUID = 5861266390249884777L;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-
-    @Column(nullable = false, unique = true, length = 16)
     private String no;
-
-    @Column(length = 32)
     private String name;
-
-    @Column(length = 16)
     private String job;
-    
-    @ManyToOne(optional=true)
-    private Employee manager; //his manager, also a Employee
-    
-    private Date hireDate;
-    
+
+    private LocalDate hireDate;
     private Double salary;
-    
     private Double commission;
-    
-    @ManyToOne(optional=false)
-    private Department department;
+    private Integer managerId;
+    private String managerName;
+    private Integer departmentId;
+    private String departmentName;
 
     public Integer getId() {
         return id;
     }
-    
+
     public void setId(Integer id) {
         this.id = id;
     }
@@ -69,19 +51,11 @@ public class Employee {
         this.job = job;
     }
 
-    public Employee getManager() {
-        return manager;
-    }
-
-    public void setManager(Employee manager) {
-        this.manager = manager;
-    }
-
-    public Date getHireDate() {
+    public LocalDate getHireDate() {
         return hireDate;
     }
 
-    public void setHireDate(Date hireDate) {
+    public void setHireDate(LocalDate hireDate) {
         this.hireDate = hireDate;
     }
 
@@ -101,12 +75,36 @@ public class Employee {
         this.commission = commission;
     }
 
-    public Department getDepartment() {
-        return department;
+    public Integer getManagerId() {
+        return managerId;
     }
 
-    public void setDepartment(Department department) {
-        this.department = department;
+    public void setManagerId(Integer managerId) {
+        this.managerId = managerId;
+    }
+
+    public String getManagerName() {
+        return managerName;
+    }
+
+    public void setManagerName(String managerName) {
+        this.managerName = managerName;
+    }
+
+    public Integer getDepartmentId() {
+        return departmentId;
+    }
+
+    public void setDepartmentId(Integer departmentId) {
+        this.departmentId = departmentId;
+    }
+
+    public String getDepartmentName() {
+        return departmentName;
+    }
+
+    public void setDepartmentName(String departmentName) {
+        this.departmentName = departmentName;
     }
 
     @Override
@@ -125,18 +123,13 @@ public class Employee {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        Employee other = (Employee) obj;
+        EmployeeDto other = (EmployeeDto) obj;
         if (no == null) {
             if (other.no != null)
                 return false;
         } else if (!no.equals(other.no))
             return false;
         return true;
-    }
-
-    @Override
-    public String toString() {
-        return "Employee [id=" + id + ", no=" + no + ", name=" + name + ", job=" + job + ", manager=" + manager + ", hireDate=" + hireDate + ", salary=" + salary + ", commission=" + commission + ", department=" + department + "]";
     }
 
 }

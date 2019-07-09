@@ -11,6 +11,9 @@ You need install JDK before you run it.
   $ git clone https://github.com/markliu2013/springboot-crud-demo.git
   $ cd springboot-crud-demo/
   $ ./gradlew build
-  $ npm install
-  $ node app.js or nohup node app.js &
+  $ ./gradlew bootRun
 ```
+
+Now you can use postman to test the REST API, you can import the json file spring boot crud.postman_collection.json.
+
+Also, you can import the project into your IDE, like eclipse or idea.

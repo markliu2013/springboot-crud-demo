@@ -21,6 +21,7 @@ import com.zfwhub.springboot.po.Department;
 import com.zfwhub.springboot.po.Employee;
 import com.zfwhub.springboot.po.SalaryGrade;
 
+// https://ajayiyengar.com/2017/07/08/testing-jpa-entities-in-a-spring-boot-application/
 @RunWith(SpringRunner.class)
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = Replace.NONE)

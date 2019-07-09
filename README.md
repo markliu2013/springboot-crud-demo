@@ -10,7 +10,7 @@ You need install JDK before you run it.
 ```sh
   $ git clone https://github.com/markliu2013/springboot-crud-demo.git
   $ cd springboot-crud-demo/
-  $ mkdir upload
+  $ ./gradlew build
   $ npm install
   $ node app.js or nohup node app.js &
 ```

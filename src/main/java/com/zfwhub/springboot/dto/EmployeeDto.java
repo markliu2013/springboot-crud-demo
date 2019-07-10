@@ -14,6 +14,9 @@ public class EmployeeDto implements DtoEntity {
     private LocalDate hireDate;
     private Double salary;
     private Double commission;
+    
+    private Integer salaryGrade;
+    
     private Integer managerId;
     private String managerName;
     private Integer departmentId;
@@ -73,6 +76,14 @@ public class EmployeeDto implements DtoEntity {
 
     public void setCommission(Double commission) {
         this.commission = commission;
+    }
+    
+    public Integer getSalaryGrade() {
+        return salaryGrade;
+    }
+    
+    public void setSalaryGrade(Integer salaryGrade) {
+        this.salaryGrade = salaryGrade;
     }
 
     public Integer getManagerId() {

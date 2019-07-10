@@ -36,6 +36,12 @@ public class EmployeeController {
         return response;
     }
     
+    @GetMapping("/initData")
+    public BaseResponse initData() {
+        employeeService.initData();
+        return new BaseResponse(true);
+    }
+    
     
 
 }

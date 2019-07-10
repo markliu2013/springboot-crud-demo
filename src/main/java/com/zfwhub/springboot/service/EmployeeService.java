@@ -10,5 +10,7 @@ import com.zfwhub.springboot.query.EmployeeQuery;
 public interface EmployeeService {
     
     List<EmployeeDto> query(EmployeeQuery employeeQuery, Pageable page);
+    
+    void initData();
 
 }

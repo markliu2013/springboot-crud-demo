@@ -13,7 +13,7 @@ public class SalaryGrade {
     private Double fromSalary; // include
     private Double toSalary; // include
     
-    
+    public SalaryGrade() { }
 
     public SalaryGrade(Integer grade, Double fromSalary, Double toSalary) {
         this.grade = grade;

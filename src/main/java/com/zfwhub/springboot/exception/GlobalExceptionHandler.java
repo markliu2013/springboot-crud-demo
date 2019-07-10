@@ -10,7 +10,7 @@ import com.zfwhub.springboot.dto.BaseResponse;
 import com.zfwhub.springboot.dto.ResponseError;
 
 @ControllerAdvice
-public class MyExceptionHandler {
+public class GlobalExceptionHandler {
     
     @ExceptionHandler(value = Exception.class)
     @ResponseBody

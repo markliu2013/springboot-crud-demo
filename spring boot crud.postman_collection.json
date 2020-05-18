@@ -25,12 +25,10 @@
 					"raw": "{\n\t\"name\": \"aa1\",\n\t\"location\": \"bb\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:8080/departments",
-					"protocol": "http",
+					"raw": "{{base_url}}/departments",
 					"host": [
-						"localhost"
+						"{{base_url}}"
 					],
-					"port": "8080",
 					"path": [
 						"departments"
 					]
@@ -44,12 +42,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/departments",
-					"protocol": "http",
+					"raw": "{{base_url}}/departments",
 					"host": [
-						"localhost"
+						"{{base_url}}"
 					],
-					"port": "8080",
 					"path": [
 						"departments"
 					]
@@ -63,14 +59,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/departments",
-					"protocol": "http",
+					"raw": "{{base_url}}/employees",
 					"host": [
-						"localhost"
+						"{{base_url}}"
 					],
-					"port": "8080",
 					"path": [
-						"departments"
+						"employees"
 					]
 				}
 			},
@@ -82,14 +76,30 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/departments",
-					"protocol": "http",
+					"raw": "{{base_url}}/employees?q={\"managerId\":\"10\"}&page=0&size=3&sort=salary,asc",
 					"host": [
-						"localhost"
+						"{{base_url}}"
 					],
-					"port": "8080",
 					"path": [
-						"departments"
+						"employees"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "{\"managerId\":\"10\"}"
+						},
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "3"
+						},
+						{
+							"key": "sort",
+							"value": "salary,asc"
+						}
 					]
 				}
 			},
@@ -101,12 +111,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/departments/aaa",
-					"protocol": "http",
+					"raw": "{{base_url}}/departments/aaa",
 					"host": [
-						"localhost"
+						"{{base_url}}"
 					],
-					"port": "8080",
 					"path": [
 						"departments",
 						"aaa"
@@ -121,12 +129,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/departments/aa",
-					"protocol": "http",
+					"raw": "{{base_url}}/departments/aa",
 					"host": [
-						"localhost"
+						"{{base_url}}"
 					],
-					"port": "8080",
 					"path": [
 						"departments",
 						"aa"
@@ -141,15 +147,13 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/departments/35",
-					"protocol": "http",
+					"raw": "{{base_url}}/departments/1",
 					"host": [
-						"localhost"
+						"{{base_url}}"
 					],
-					"port": "8080",
 					"path": [
 						"departments",
-						"35"
+						"1"
 					]
 				}
 			},
@@ -172,12 +176,10 @@
 					"raw": "{\n\t\"from\": \"A\",\n\t\"to\": \"B\",\n\t\"money\": \"100\"\n}"
 				},
 				"url": {
-					"raw": "http://localhost:8080/accounts/transfer",
-					"protocol": "http",
+					"raw": "{{base_url}}/accounts/transfer",
 					"host": [
-						"localhost"
+						"{{base_url}}"
 					],
-					"port": "8080",
 					"path": [
 						"accounts",
 						"transfer"
@@ -185,6 +187,36 @@
 				}
 			},
 			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "20ed4fdf-e024-4eb8-8fbf-9b5c1e908c55",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "aa333e1f-5d25-4027-8a4d-054865ebeb2c",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "94a9ef9a-4087-4767-b9ca-d77db82c27d0",
+			"key": "base_url",
+			"value": "http://localhost:9090",
+			"type": "string"
 		}
 	]
 }
